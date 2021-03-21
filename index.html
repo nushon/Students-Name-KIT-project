@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Work1</title>
+    <style>
+        body{
+            display: grid;
+            justify-content: center;
+        }
+
+        /* BONUS */
+        /* ADD STYLE TO YOUR WORK */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NAME OF STUDENTS PER CLASS</h1>
+    </header>
+    <section id="studentsList">
+        <div>
+            <h3>Grade 10</h3>
+            <ol id="grade-10">
+                
+                <!-- TODO 4 -->
+                <!-- YOUR LIST ITEMS GO HERE -->
+               
+            </ol>
+        </div>
+
+        <div>
+            <h3>Grade 11</h3>
+            <ol id="grade-11">
+                <!-- TODO 5 -->
+                <!-- YOUR LIST ITEMS GO HERE -->
+              
+            </ol>
+        </div>
+
+        <div>
+            <h3>Grade 12</h3>
+            <ol id="grade-12">
+                <!-- TODO 6 -->
+                <!-- YOUR LIST ITEMS GO HERE -->
+               
+        </div>
+    </section>
+
+    <script>
+
+        // TODO 3
+        // MAKE A GET REQUEST HERE AND DISPLAY THE RESPONSE IN THE LIST ELEMENTS ABOVE
+        fetch("/names")
+        .then(response => response.json())
+        .then(data => {
+           
+            let class10th = data["10th grade"];
+            class10th.forEach(element => {
+                console.log(element);
+                let grade10 = document.getElementById("grade-10").innerHTML +=  `
+                                      <li>${element}</li>`
+            });
+
+            let class11th = data["11th grade"];
+            class11th.forEach(element => {
+                console.log(element);
+                let grade11 = document.getElementById("grade-11").innerHTML +=  `
+                                      <li>${element}</li>`
+            });
+            // console.log(data);
+        
+            let class12th = data["12th grade"];
+            class12th.forEach(element => {
+                console.log(element);
+                let grade12 = document.getElementById("grade-12").innerHTML +=  `
+                                      <li>${element}</li>`
+            });
+            
+        })
+
+    </script>
+</body>
+</html>
